@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const apiUrl = process.env.API_URL || 'http://wocker.test/wp-json/wp/v2'
+const apiUrl = process.env.API_URL || 'https://kiteretz.xsrv.jp/wp-json/wp/v2'
 
 export default {
   mode: 'universal',
