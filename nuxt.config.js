@@ -1,3 +1,6 @@
+import axios from 'axios'
+
+const apiUrl = process.env.API_URL || 'http://wocker.test/wp-json/wp/v2'
 
 export default {
   mode: 'universal',
@@ -46,7 +49,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: 'http://wocker.test/wp-json/wp/v2'
+    baseURL: apiUrl
   },
   /*
   ** Build configuration
@@ -56,6 +59,18 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+    }
+  },
+
+  generate: {
+    routes: async () => {
+      const { data } = await axios.get(`${apiUrl}/posts?_embed`)
+      return data.map(post => {
+        return {
+          route: `${post.id}`,
+          payload: post
+        }
+      })
     }
   }
 }
