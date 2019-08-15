@@ -7,6 +7,9 @@
         </figure>
         <h2>{{ post.title.rendered }}</h2>
         <div v-html="post.excerpt.rendered"></div>
+        <n-link :to="{name: 'id', params: { id: post.id } }">
+          Read more
+        </n-link>
       </li>
     </ul>
   </div>
