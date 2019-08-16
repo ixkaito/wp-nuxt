@@ -46,6 +46,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: 'http://wocker.test/wp-json/wp/v2'
   },
   /*
   ** Build configuration
