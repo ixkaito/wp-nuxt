@@ -9,9 +9,13 @@
 
 <script>
 export default {
-  async asyncData({ $axios, params }) {
-    const { data } = await $axios.get(`/posts/${params.id}?_embed`)
-    return { post: data }
+  async asyncData({ $axios, params, payload }) {
+    if (payload) {
+      return { post: payload }
+    } else {
+      const { data } = await $axios.get(`/posts/${params.id}?_embed`)
+      return { post: data }
+    }
   }
 }
 </script>
