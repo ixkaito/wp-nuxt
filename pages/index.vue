@@ -13,9 +13,13 @@
 
 <script>
 export default {
-  async asyncData({ $axios }) {
-    const { data } = await $axios.get('/posts?_embed')
-    return { posts: data }
+  async fetch({ store }) {
+    await store.dispatch('getPosts')
+  },
+  computed: {
+    posts() {
+      return this.$store.state.posts
+    }
   }
 }
 </script>
