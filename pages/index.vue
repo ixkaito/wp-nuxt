@@ -6,6 +6,9 @@
           :src="post._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url" alt="Post thumbnail">
         <h2>{{ post.title.rendered }}</h2>
         <div v-html="post.excerpt.rendered"></div>
+        <n-link :to="{name: 'id', params: { id: post.id } }">
+          Read more
+        </n-link>
       </li>
     </ul>
   </div>
